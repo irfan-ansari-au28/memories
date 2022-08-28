@@ -9,15 +9,15 @@ const app = express();
 
 // https://localhost:5000/posts
 
-app.use(cors());
 app.use(bodyParser.json({ limit: "30m", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30m", extended: true }));
+app.use(cors());
 app.use("/posts", postRoutes);
 
 //MongoDB
 
 const CONNECTION_URL =
-  "mongodb+srv://memories_user:karomaro@cluster0.qbie7i4.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://adminUser:admin@cluster0.qbie7i4.mongodb.net/?retryWrites=true&w=majority";
 const PORT = process.env.PORT || 8000;
 
 mongoose
@@ -27,4 +27,4 @@ mongoose
       console.log(`Server Running on Port: https://localhost:${PORT}`)
     )
   )
-  .catch((error) => console.log(`${error} did not connect`));
+  .catch((error) => console.log(`${error} did not connect!`));
